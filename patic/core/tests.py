@@ -6,13 +6,13 @@ from patic.core.models import moeda, filelist, filepath, dadospa
 class ConvertMoeda(TestCase):
 
     def test_moeda_1000(self):
-        return self.assertEqual(moeda(1000), '1.000,00')
+        return self.assertIn(moeda(1000), ['1.000,00', '1,000.00'])
 
     def test_moeda_1(self):
-        return self.assertEqual(moeda(1), '1,00')
+        return self.assertIn(moeda(1), ['1,00', '1.00'])
 
     def test_moeda_05(self):
-        return self.assertEqual(moeda(0.5), '0,50')
+        return self.assertIn(moeda(0.5), ['0,50', '0.50'])
 
 
 class FileList(TestCase):
