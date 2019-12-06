@@ -1,5 +1,3 @@
-from unittest import TestCase
-
 from django.db import models
 
 import os
@@ -9,12 +7,15 @@ import locale
 
 
 def filelist():
-    # path = r"\\server\shared\" # Formato Windows
-    path = "patic/core/media"   # Formato Unix
+
+    try:
+        pasta_acao = r"\\RUSSIA\Dados\SGI\1. DIRETORIA DE GESTAO ESTRATEGICA\06.Planos de Aquisição\2020\_GERADOR_PDF" # Formato Windows
+    except:
+        pasta_acao = "patic/core/media"   # Formato Unix
 
     files = []
 
-    for r, d, f in os.walk(path):
+    for r, d, f in os.walk(pasta_acao):
         for file in f:
             if '.xlsx' in file:
                 files.append(os.path.join(r, file))
@@ -33,6 +34,7 @@ def dadospa():
     df = df.dropna()
     df.columns = df.iloc[0]
     df = df.drop(df.index[0])
+    df = df.reset_index(drop=True)
     return df
 
 
