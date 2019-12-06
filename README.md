@@ -12,6 +12,7 @@ Plano de Aquisição de TIC
 4. Instale as dependências
 5. Configure a instância com o .env
 6. Execute os testes
+7. Roda o servidor e abre a aplicação no navegador
 
 ### Unix:
 ```console
@@ -22,6 +23,7 @@ source .patic/bin/activate
 pip install -r requirements.txt
 cp contrib/env-sample .env
 python manage.py test
+manage runserver 0.0.0.0:8080
 ```
 
 ### Windows:
@@ -29,8 +31,9 @@ python manage.py test
 git clone https://github.com/dssantos/planejamento-de-tic.git patic
 cd patic
 python -m venv .patic
-.patic\Script\activate
+.patic\Scripts\activate
 pip install -r requirements.txt
 copy contrib\env-sample .env
 python manage.py test
+manage runserver 0.0.0.0:8080
 ```
