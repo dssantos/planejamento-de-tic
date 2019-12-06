@@ -19,5 +19,6 @@ from patic.core import views
 
 urlpatterns = [
     path('', views.home),
+    path('report/', views.report),
     path('admin/', admin.site.urls),
 ]
