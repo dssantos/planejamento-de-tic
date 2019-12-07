@@ -5,13 +5,12 @@ import pandas as pd
 
 import locale
 
+from decouple import config
+
 
 def filelist():
 
-    try:
-        pasta_acao = r"\\RUSSIA\Dados\SGI\1. DIRETORIA DE GESTAO ESTRATEGICA\06.Planos de Aquisição\2020\_GERADOR_PDF" # Formato Windows
-    except:
-        pasta_acao = "patic/core/media"   # Formato Unix
+    pasta_acao = config('PASTA_ACAO', default="patic/core/media")   # Formato Unix
 
     files = []
 
