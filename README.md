@@ -3,6 +3,7 @@
 Plano de Aquisição de TIC
 
 [![Build Status](https://travis-ci.org/dssantos/planejamento-de-tic.svg?branch=master)](https://travis-ci.org/dssantos/planejamento-de-tic)
+[![Coverage Status](https://coveralls.io/repos/github/dssantos/planejamento-de-tic/badge.svg?branch=master)](https://coveralls.io/github/dssantos/planejamento-de-tic?branch=master)
 
 ## Para desenvolver
 
@@ -12,9 +13,9 @@ Plano de Aquisição de TIC
 4. Instale as dependências
 5. Configure a instância com o .env
 6. Execute os testes
-7. Roda o servidor e abre a aplicação no navegador
+7. Execute o servidor e abra a aplicação no endereço http://17.0.0.1:8080
 
-### Unix:
+### Script Unix:
 ```console
 git clone https://github.com/dssantos/planejamento-de-tic.git patic
 cd patic
@@ -26,7 +27,7 @@ python manage.py test
 manage runserver 0.0.0.0:8080
 ```
 
-### Windows:
+### Script Windows:
 ```console
 git clone https://github.com/dssantos/planejamento-de-tic.git patic
 cd patic
