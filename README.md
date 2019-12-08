@@ -2,7 +2,7 @@
 
 Plano de Aquisição de TIC
 
-[![Build Status](https://travis-ci.org/dssantos/eventex.svg?branch=master)](https://travis-ci.org/dssantos/eventex)
+[![Build Status](https://travis-ci.org/dssantos/planejamento-de-tic.svg?branch=master)](https://travis-ci.org/dssantos/planejamento-de-tic)
 
 ## Para desenvolver
 
