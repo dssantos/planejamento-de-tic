@@ -1,6 +1,6 @@
 from unittest import TestCase
 
-from patic.core.models import moeda, filelist, filepath, dadospa
+from patic.reports.models import moeda, filelist, filepath, dadospa
 
 
 class ConvertMoeda(TestCase):
@@ -26,6 +26,7 @@ class FileList(TestCase):
 class FilePath(TestCase):
     def test_path_contain_xlsx(self):
         return self.assertIn('.xlsx', filepath())
+
 
 class CheckDataframe(TestCase):
     def test_dataframe_isnot_empty(self):

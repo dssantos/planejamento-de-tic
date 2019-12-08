@@ -15,10 +15,11 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from patic.core import views
+from patic.core.views import home
+from patic.reports.views import report
 
 urlpatterns = [
-    path('', views.home),
-    path('report/', views.report),
+    path('', home),
+    path('report/', report),
     path('admin/', admin.site.urls),
 ]
