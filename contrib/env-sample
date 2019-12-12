@@ -1,3 +1,2 @@
-#PASTA_ACAO=\\server\shared\
-#PASTA_ACAO=/home/user/
-#PASTA_EXEC=
+#PASTA_ACAO=\\server\exemplo_de_pasta_remota\
+#PASTA_EXEC=/home/exemplo_de_pasta_local/
