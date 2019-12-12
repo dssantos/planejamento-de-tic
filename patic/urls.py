@@ -17,9 +17,11 @@ from django.contrib import admin
 from django.urls import path
 from patic.core.views import home
 from patic.reports.views import report
+from patic.reports2.views import report2
 
 urlpatterns = [
     path('', home),
     path('report/', report),
+    path('report2/', report2),
     path('admin/', admin.site.urls),
 ]

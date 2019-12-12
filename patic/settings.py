@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'patic.core',
     'patic.reports',
+    'patic.reports2',
 ]
 
 MIDDLEWARE = [
