@@ -14,7 +14,7 @@ Plano de Aquisição de TIC
 4. Instale as dependências
 5. Configure a instância com o .env
 6. Execute os testes
-7. Execute o servidor e abra a aplicação no endereço http://17.0.0.1:8080
+7. Execute o servidor e abra a aplicação no endereço http://127.0.0.1:8080
 
 ### Script Unix:
 ```console
