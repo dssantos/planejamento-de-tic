@@ -14,6 +14,12 @@ class ConvertMoeda(TestCase):
     def test_moeda_05(self):
         return self.assertIn(moeda(0.5), ['0,50', '0.50'])
 
+    def test_moeda_1_str(self):
+        return self.assertIn(moeda('1'), ['1,00', '1.00'])
+
+    def test_moeda_1_espaco_str(self):
+        return self.assertIn(moeda('\xa0R$ 1'), ['1,00', '1.00'])
+
 
 class FileList(TestCase):
     def test_list_not_blank(self):

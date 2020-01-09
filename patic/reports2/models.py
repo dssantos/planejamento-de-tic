@@ -1,6 +1,6 @@
 from django.db import models
 
-import os
+import os, re
 import pandas as pd
 
 import locale
@@ -38,7 +38,12 @@ def dadospa():
 
 
 def moeda(v):
-    valor = v
+    valor = clearnumber(v)
     locale.setlocale(locale.LC_ALL, '')
     valor = locale.currency(valor, grouping=True, symbol=None)
     return valor
+
+def clearnumber(n):
+    # Remove caracteres indesejados
+    n = re.sub('[^0-9\.].', '', str(n))
+    return float(n)
