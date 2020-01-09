@@ -25,7 +25,7 @@ source .patic/bin/activate
 pip install -r requirements.txt
 cp contrib/env-sample .env
 python manage.py test
-manage runserver 0.0.0.0:8080
+python manage.py runserver 0.0.0.0:8080
 ```
 
 ### Script Windows:
@@ -37,5 +37,5 @@ python -m venv .patic
 pip install -r requirements.txt
 copy contrib\env-sample .env
 python manage.py test
-manage runserver 0.0.0.0:8080
+python manage.py runserver 0.0.0.0:8080
 ```
