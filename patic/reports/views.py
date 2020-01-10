@@ -46,7 +46,7 @@ def report(request):
                 [quantidade, valor]
                ]
 
-        t = Table(data, colWidths=[420, 250], rowHeights=[70, 200, 80, 30, 30])
+        t = Table(data, colWidths=[420, 250], rowHeights=[70, 195, 80, 30, 30])
         t.setStyle(TableStyle([("BOX", (0, 0), (-1, -1), 0.25, colors.black),
                                ('INNERGRID', (0, 0), (-1, -1), 0.25, colors.black),
                                ('SPAN', (0, 0), (1, 0)),
