@@ -20,27 +20,28 @@ def report2(request):
     canv = Canvas(buffer, pagesize=landscape(letter))
 
     filename = filepath().split("/")[-1].split("\\")[-1].split(".")[0]
-    orgao = filename.replace('  ', ' ').replace('Execução PA ', '').replace('Execucao PA ', '').replace(' 2019 (ultimo)', '').replace(' 2019', '')
+    orgao = filename.replace('  ', ' ').replace('Execução PA ', '').replace('Execucao PA ', '').replace(' (ultimo)', '')[:-5]
+    ano_value = filename.replace('  ', ' ').replace('Execução PA ', '').replace('Execucao PA ', '').replace(' (ultimo)', '')[-4:]
     df = dadospa()
 
     for index, row in df.iterrows():
 
-        contratada = row[8] == "Contratada/Adquirida"
-        cancelada = (row[8] == "Cancelada") or (row[8] == "Suspensa")
+        contratada = row[9] == "Contratada/Adquirida"
+        cancelada = (row[9] == "Cancelada") or (row[9] == "Suspensa")
         nomerelatorio = Paragraph("<bold><font size=20 color='white'>Relatório de Execução</font></bold>", style)
         nomeorgao = Paragraph("<bold><font size=25 color='white'>{}</font></bold>".format(orgao), style)
-        ano = Paragraph("<bold><font size=25 color='white'>2019</font></bold>", style)
+        ano = Paragraph("<bold><font size=25 color='white'>{}</font></bold>".format(ano_value), style)
 
-        acao = Paragraph('<font size=12><b>Ação:</b><br /><br />{}</font>'.format(row[0]), style)
-        contrato = Paragraph('<font size=12><b>{}</b></font>'.format(row[5]), style)
-        quantidade = Paragraph('<font size=12><b>Quantidade Planejada:</b> {}</font>'.format(row[6]), style)
-        quantidade_exec = Paragraph('<font size=12><b>Quantidade Executada:</b> {}</font>'.format(row[9]), style) if contratada else ""
-        execucao_fisica = Paragraph('<font size=12><b>Execução Física:</b> {} %</font>'.format(round(row[9]/row[6]*100,0)), style) if contratada else ""
-        valor = Paragraph('<font size=12><b>Valor Planejado:</b> R$ {}</font>'.format(moeda(row[7])), style)
-        valor_exec = Paragraph('<font size=12><b>Valor Executado:</b> R$ {}</font>'.format(moeda(row[10])), style) if contratada else ""
-        execucao_financeira = Paragraph('<font size=12><b>Execução Financeira:</b> {} %</font>'.format(round(row[10]/row[7]*100,0)), style) if contratada else ""
-        status = Paragraph('<font size=12><b>Status da Ação:</b> {}</font>'.format(row[8]), styles['Normal'])
-        motivo = Paragraph('<font size=12><b>Motivo:</b> {}</font>'.format(row[11]), styles['Normal']) if cancelada else ""
+        acao = Paragraph('<font size=12><b>Ação:</b><br /><br />{}</font>'.format(row[1]), style)
+        contrato = Paragraph('<font size=12><b>{}</b></font>'.format(row[6]), style)
+        quantidade = Paragraph('<font size=12><b>Quantidade Planejada:</b> {}</font>'.format(row[7]), style)
+        quantidade_exec = Paragraph('<font size=12><b>Quantidade Executada:</b> {}</font>'.format(row[10]), style) if contratada else ""
+        execucao_fisica = Paragraph('<font size=12><b>Execução Física:</b> {} %</font>'.format(round(row[10]/row[7]*100,0)), style) if contratada else ""
+        valor = Paragraph('<font size=12><b>Valor Planejado:</b> R$ {}</font>'.format(moeda(row[8])), style)
+        valor_exec = Paragraph('<font size=12><b>Valor Executado:</b> R$ {}</font>'.format(moeda(row[11])), style) if contratada else ""
+        execucao_financeira = Paragraph('<font size=12><b>Execução Financeira:</b> {} %</font>'.format(round(row[11]/row[8]*100,0)), style) if contratada else ""
+        status = Paragraph('<font size=12><b>Status da Ação:</b> {}</font>'.format(row[9]), styles['Normal'])
+        motivo = Paragraph('<font size=12><b>Motivo:</b> {}</font>'.format(row[12]), styles['Normal']) if cancelada else ""
 
         data = [
                 [acao, ''],
@@ -89,4 +90,4 @@ def report2(request):
     canv.save()
 
     buffer.seek(0)
-    return FileResponse(buffer, as_attachment=True, filename='Relatório de Execução {} 2019.pdf'.format(orgao))
+    return FileResponse(buffer, as_attachment=True, filename='Relatório de Execução {} {}.pdf'.format(orgao, ano_value))

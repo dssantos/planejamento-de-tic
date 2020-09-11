@@ -1,4 +1,5 @@
 import io
+import math
 
 from django.http import FileResponse
 from reportlab.lib import colors
@@ -20,23 +21,25 @@ def report(request):
     canv = Canvas(buffer, pagesize=landscape(letter))
 
     filename = filepath().split("/")[-1].split("\\")[-1].split(".")[0]
-    orgao = filename.replace('PA ', '').replace('  ', ' ').replace(' 2020 (ultimo)', '').replace(' 2020', '')
+    orgao = filename.replace('  ', ' ').replace('PA ', '').replace(' (ultimo)', '')[:-5]
+    ano_value = filename.replace('  ', ' ').replace('PA ', '').replace(' (ultimo)', '')[-4:]
     df = dadospa()
 
     for index, row in df.iterrows():
 
         nomerelatorio = Paragraph("<bold><font size=20 color='white'>Relatório de Ações</font></bold>", style)
         nomeorgao = Paragraph("<bold><font size=25 color='white'>{}</font></bold>".format(orgao), style)
-        ano = Paragraph("<bold><font size=25 color='white'>2020</font></bold>", style)
+        ano = Paragraph("<bold><font size=25 color='white'>{}</font></bold>".format(ano_value), style)
 
-        acao = Paragraph('<font size=12><b>Ação:</b><br /><br />{}</font>'.format(row[0]), style)
-        justificativa = Paragraph('<font size=12><b>Justificativa:</b><br /><br />{}</font>'.format(row[1]), styles['Normal'])
-        especificacao = Paragraph('<font size=12><b>Especificação do item:</b><br /><br />{}</font>'.format(row[2]), styles['Normal'])
-        objeto = Paragraph('<font size=12><b>Objeto de aquisição:</b><br /><br />{}</font>'.format(row[3]), styles['Normal'])
-        contrato = Paragraph('<font size=12><b>{}</b></font>'.format(row[5]), style)
-        duracao = Paragraph('<font size=12><b>Duração do contrato:</b> {} meses</font>'.format(row[4]), style)
-        quantidade = Paragraph('<font size=12><b>Quantidade:</b> {}</font>'.format(row[6]), style)
-        valor = Paragraph('<font size=12><b>Valor:</b> R$ {}</font>'.format(moeda(row[7])), style)
+        unidade = '{} - '.format(row[0]) if str(row[0]) != 'nan' else ''
+        acao = Paragraph('<font size=12><b>Ação:</b><br /><br />{}{}</font>'.format(unidade, row[1]), style)
+        justificativa = Paragraph('<font size=12><b>Justificativa:</b><br /><br />{}</font>'.format(row[2]), styles['Normal'])
+        especificacao = Paragraph('<font size=12><b>Especificação do item:</b><br /><br />{}</font>'.format(row[3]), styles['Normal'])
+        objeto = Paragraph('<font size=12><b>Objeto de aquisição:</b><br /><br />{}</font>'.format(row[4]), styles['Normal'])
+        contrato = Paragraph('<font size=12><b>{}</b></font>'.format(row[6]), style)
+        duracao = Paragraph('<font size=12><b>Duração do contrato:</b> {} meses</font>'.format(row[5]), style)
+        quantidade = Paragraph('<font size=12><b>Quantidade:</b> {}</font>'.format(row[7]), style)
+        valor = Paragraph('<font size=12><b>Valor:</b> R$ {}</font>'.format(moeda(row[8])), style)
 
         data = [
                 [acao, ''],
@@ -84,4 +87,4 @@ def report(request):
     canv.save()
 
     buffer.seek(0)
-    return FileResponse(buffer, as_attachment=True, filename='Relatório de Ações {} 2020.pdf'.format(orgao))
+    return FileResponse(buffer, as_attachment=True, filename='Relatório de Ações {} {}.pdf'.format(orgao, ano_value))

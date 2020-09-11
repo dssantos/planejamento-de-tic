@@ -1,5 +1,6 @@
 .env
 .idea
+.vscode
 .patic
 *.sqlite3
 *pyc

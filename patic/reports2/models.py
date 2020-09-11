@@ -16,7 +16,7 @@ def filelist():
 
     for r, d, f in os.walk(pasta_exec):
         for file in f:
-            if '.xlsx' in file:
+            if ('.xlsx' in file) and ('~$' not in file):
                 files.append(os.path.join(r, file))
 
     return files
@@ -29,9 +29,9 @@ def filepath():
 def dadospa():
     xl = pd.ExcelFile(filepath())
     df = xl.parse("Execução")
-    df = df.drop(columns=['Unnamed: 0', 'Unnamed: 16', 'Unnamed: 17', 'Unnamed: 18', 'Unnamed: 19', 'Unnamed: 20', 'Unnamed: 21', 'Unnamed: 22'])
+    df = df.drop(columns=['Unnamed: 16', 'Unnamed: 17', 'Unnamed: 18', 'Unnamed: 19', 'Unnamed: 20', 'Unnamed: 21', 'Unnamed: 22'])
+    df = df.iloc[6:]
     df = df.dropna(subset=['Unnamed: 2'])
-    df.columns = df.iloc[0]
     df = df.drop(df.index[0])
     df = df.reset_index(drop=True)
     return df
