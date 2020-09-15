@@ -22,6 +22,7 @@ git clone https://github.com/dssantos/planejamento-de-tic.git patic
 cd patic
 python -m venv .patic
 source .patic/bin/activate
+pip install -U pip
 pip install -r requirements.txt
 cp contrib/env-sample .env
 python manage.py test
@@ -34,8 +35,22 @@ git clone https://github.com/dssantos/planejamento-de-tic.git patic
 cd patic
 python -m venv .patic
 .patic\Scripts\activate
+pip install -U pip
 pip install -r requirements.txt
 copy contrib\env-sample .env
+python manage.py test
+python manage.py runserver 0.0.0.0:8080
+```
+
+### Script Windows (Git Bash com comandos Linux):
+```console
+git clone https://github.com/dssantos/planejamento-de-tic.git patic
+cd patic
+python -m venv .patic
+source .patic/Scripts/activate
+pip install -U pip
+pip install -r requirements.txt
+cp contrib/env-sample .env
 python manage.py test
 python manage.py runserver 0.0.0.0:8080
 ```
