@@ -12,7 +12,8 @@ Plano de Aquisição de TIC
 2. Crie um virtualenv com python 3.7
 3. Ative o virtualenv
 4. Instale as dependências
-5. Configure a instância com o .env
+5. Defina as variáveis no arquivo .env
+
 6. Execute os testes
 7. Execute o servidor e abra a aplicação no endereço http://127.0.0.1:8080
 
@@ -25,6 +26,8 @@ source .patic/bin/activate
 pip install -U pip
 pip install -r requirements.txt
 cp contrib/env-sample .env
+cat .env
+
 python manage.py test
 python manage.py runserver 0.0.0.0:8080
 ```
@@ -38,6 +41,8 @@ python -m venv .patic
 pip install -U pip
 pip install -r requirements.txt
 copy contrib\env-sample .env
+type .env
+
 python manage.py test
 python manage.py runserver 0.0.0.0:8080
 ```
@@ -51,6 +56,8 @@ source .patic/Scripts/activate
 pip install -U pip
 pip install -r requirements.txt
 cp contrib/env-sample .env
+cat .env
+
 python manage.py test
 python manage.py runserver 0.0.0.0:8080
 ```

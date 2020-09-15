@@ -1,2 +1,6 @@
 #PASTA_ACAO=\\server\exemplo_de_pasta_remota\
 #PASTA_EXEC=/home/exemplo_de_pasta_local/
+DEBUG=True
+SECRET_KEY=INSIRA_AQUI
+ALLOWED_HOSTS=127.0.0.1, .localhost, .herokuap.com, .dokku.local
+TIME_ZONE=UTC
