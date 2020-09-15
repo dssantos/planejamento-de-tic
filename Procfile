@@ -1,0 +1,1 @@
+web: gunicorn patic.wsgi --log-file -
