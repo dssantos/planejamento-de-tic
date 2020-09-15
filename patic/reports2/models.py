@@ -10,7 +10,7 @@ from decouple import config
 
 def filelist():
 
-    pasta_exec = config('PASTA_EXEC', default="patic/core/media/exec")   # Formato Unix
+    pasta_exec = config('PASTA_EXEC', default="./contrib/exec")   # Formato Unix
 
     files = []
 
