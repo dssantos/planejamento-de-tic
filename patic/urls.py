@@ -18,10 +18,12 @@ from django.urls import path
 from patic.core.views import home
 from patic.reports.views import report
 from patic.reports2.views import report2
+from patic.avaliacao.views import avaliacao
 
 urlpatterns = [
     path('', home),
     path('report/', report),
     path('report2/', report2),
+    path('avaliacao/', avaliacao),
     path('admin/', admin.site.urls),
 ]
