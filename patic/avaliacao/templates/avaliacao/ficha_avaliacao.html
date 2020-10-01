@@ -52,23 +52,23 @@
         </colgroup>
         <thead>
             <tr>
-            <th class="tg-o47a" colspan="5" rowspan="2">FICHA&nbsp;&nbsp;&nbsp;DE AVALIAÇÃO XXXXXXXX</th>
+                <th class="tg-o47a" colspan="5" rowspan="2">FICHA DE AVALIAÇÃO {{nome}}</th>
             </tr>
             <tr>
             </tr>
         </thead>
         <tbody>
             <tr>
-            <td class="tg-0lax" colspan="5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</td>
+                <td class="tg-0lax" colspan="5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</td>
             </tr>
             <tr>
-            <td class="tg-alp9" colspan="5">1 - RELAÇÃO DE HARDWARE</td>
+                <td class="tg-alp9" colspan="5">1 - RELAÇÃO DE HARDWARE</td>
             </tr>
             <tr>
-            <td class="tg-g5ua" colspan="2" rowspan="2">Descrição</td>
-            <td class="tg-g5ua" rowspan="2">Valor Estimado</td>
-            <td class="tg-g5ua" rowspan="2">Quantidade</td>
-            <td class="tg-g5ua">Indicado&nbsp;&nbsp;&nbsp;para :</td>
+                <td class="tg-g5ua" colspan="2" rowspan="2">Descrição</td>
+                <td class="tg-g5ua" rowspan="2">Valor Estimado</td>
+                <td class="tg-g5ua" rowspan="2">Quantidade</td>
+                <td class="tg-g5ua">Indicado&nbsp;&nbsp;&nbsp;para :</td>
             </tr>
             <tr>
             <td class="tg-g5ua">Exame do Comitê (conforme Decreto XXXXX/XXXX )</td>
@@ -128,7 +128,7 @@
             </tr>
             {% for acao in servicos %}
             <tr>
-                <td class="tg-nrix" colspan="2">{{ acao.nome }}</td>
+                <td class="tg-nrix">{{ acao.nome }}</td>
                 <td class="tg-nrix">{{ acao.valor }}</td>
                 <td class="tg-nrix">{{ acao.comum_ou_nao_comum }}</td>
                 <td class="tg-nrix">{{ acao.renovacao_de_contrato }}</td>
@@ -157,7 +157,7 @@
             </tr>
             {% for acao in servicos_prod %}
             <tr>
-                <td class="tg-nrix" colspan="2">{{ acao.nome }}</td>
+                <td class="tg-nrix">{{ acao.nome }}</td>
                 <td class="tg-nrix">{{ acao.valor }}</td>
                 <td class="tg-nrix">{{ acao.obrigatorio_ou_nao_obrigatorio }}</td>
                 <td class="tg-nrix">{{ acao.renovacao_de_contrato }}</td>

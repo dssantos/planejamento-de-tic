@@ -7,7 +7,7 @@ def avaliacao(request):
     if request.method == 'POST':
         form = AvaliacaoForm(request.POST, request.FILES)
         if form.is_valid():
-            context = ficha_avaliacao_context(request.FILES)
+            context = ficha_avaliacao_context(request.FILES['planilha_de_acao'])
             return render(request, 'avaliacao/ficha_avaliacao.html', context=context)
     else:
         form = AvaliacaoForm()
