@@ -6,7 +6,10 @@ from decouple import config
 
 def moeda(v):
     valor = clearnumber(v)
-    locale.setlocale(locale.LC_ALL, '')
+    try:
+        locale.setlocale(locale.LC_ALL, 'Portuguese_Brazil.1252')
+    except:
+        locale.setlocale(locale.LC_ALL, '')
     valor = locale.currency(valor, grouping=True, symbol=None)
     return valor
 
