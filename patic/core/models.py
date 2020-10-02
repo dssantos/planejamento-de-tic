@@ -5,13 +5,10 @@ from decouple import config
 
 
 def moeda(v):
-    valor = clearnumber(v)
-    try:
-        locale.setlocale(locale.LC_ALL, 'Portuguese_Brazil.1252')
-    except:
-        locale.setlocale(locale.LC_ALL, '')
-    valor = locale.currency(valor, grouping=True, symbol=None)
-    return valor
+    value = clearnumber(v)
+    locale.setlocale(locale.LC_ALL, '')
+    fvalue = locale.currency(value, grouping=True, symbol=None)
+    return fvalue if fvalue[-3] == ',' else fvalue.translate(fvalue.maketrans(',.','.,'))
 
 def clearnumber(n):
     # Remove caracteres indesejados
