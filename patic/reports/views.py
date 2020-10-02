@@ -9,7 +9,8 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.pdfgen.canvas import Canvas
 from reportlab.platypus import Table, TableStyle, Paragraph, Image
 
-from patic.reports.models import dadospa, filepath, moeda
+from patic.core.models import moeda
+from patic.reports.models import dadospa, filepath
 
 
 def report(request):
@@ -20,7 +21,7 @@ def report(request):
 
     canv = Canvas(buffer, pagesize=landscape(letter))
 
-    filename = filepath().split("/")[-1].split("\\")[-1].split(".")[0]
+    filename = filepath('Ação').split("/")[-1].split("\\")[-1].split(".")[0]
     orgao = filename.replace('  ', ' ').replace('PA ', '').replace(' (ultimo)', '')[:-5]
     ano_value = filename.replace('  ', ' ').replace('PA ', '').replace(' (ultimo)', '')[-4:]
     df = dadospa()

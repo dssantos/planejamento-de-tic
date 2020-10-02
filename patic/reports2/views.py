@@ -8,7 +8,8 @@ from reportlab.lib.styles import getSampleStyleSheet
 from reportlab.pdfgen.canvas import Canvas
 from reportlab.platypus import Table, TableStyle, Paragraph, Image
 
-from patic.reports2.models import dadospa, filepath, moeda
+from patic.core.models import moeda, filepath
+from patic.reports2.models import dadospa
 
 
 def report2(request):
@@ -19,7 +20,7 @@ def report2(request):
 
     canv = Canvas(buffer, pagesize=landscape(letter))
 
-    filename = filepath().split("/")[-1].split("\\")[-1].split(".")[0]
+    filename = filepath('Execução').split("/")[-1].split("\\")[-1].split(".")[0]
     orgao = filename.replace('  ', ' ').replace('Execução PA ', '').replace('Execucao PA ', '').replace(' (ultimo)', '')[:-5]
     ano_value = filename.replace('  ', ' ').replace('Execução PA ', '').replace('Execucao PA ', '').replace(' (ultimo)', '')[-4:]
     df = dadospa()
