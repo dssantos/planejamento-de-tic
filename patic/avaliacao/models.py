@@ -1,6 +1,7 @@
 from django.db import models
 import pandas as pd
 
+from patic.core.models import moeda
 
 def ficha_avaliacao_context(docfile):
     
@@ -8,26 +9,26 @@ def ficha_avaliacao_context(docfile):
     frame = raw_dataset(docfile)
     hardwares = [{
         'nome': row['acao'],
-        'valor': row['valor'],
+        'valor': f"R$ {moeda(row['valor'])}",
         'quantidade': row['quantidade'],
         'indicacao_comite': 'Não'
         } for index, row in frame.iterrows() if row['objeto'] == 'Hardware']
     softwares = [{
         'nome': row['acao'],
-        'valor': row['valor'],
+        'valor': f"R$ {moeda(row['valor'])}",
         'quantidade': row['quantidade'],
         'indicacao_comite': 'Não'
         } for index, row in frame.iterrows() if row['objeto'] == 'Software']
     servicos = [{
         'nome': row['acao'],
-        'valor': row['valor'],
+        'valor': f"R$ {moeda(row['valor'])}",
         'comum_ou_nao_comum': row['objeto'],
         'renovacao_de_contrato': row['contrato_novo_ou_renovacao'],
         'indicacao_comite': 'Não'
         } for index, row in frame.iterrows() if row['objeto'] in ['Serviço Comum', 'Serviço Não Comum']]
     servicos_prod = [{
         'nome': row['acao'],
-        'valor': row['valor'],
+        'valor': f"R$ {moeda(row['valor'])}",
         'obrigatorio_ou_nao_obrigatorio': row['objeto'],
         'renovacao_de_contrato': row['contrato_novo_ou_renovacao'],
         'indicacao_comite': 'Não'
