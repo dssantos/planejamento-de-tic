@@ -42,162 +42,180 @@
     <a href="#" class="button">Imprimir</a>
     <br>
 
-    <table class="tg" style="table-layout: fixed; width: 1122px">
-        <colgroup>
-        <col style="width: 507px">
-        <col style="width: 131px">
-        <col style="width: 193px">
-        <col style="width: 96px">
-        <col style="width: 195px">
-        </colgroup>
-        <thead>
-            <tr>
-                <th class="tg-o47a" colspan="5" rowspan="2">FICHA DE AVALIAÇÃO {{nome}}</th>
-            </tr>
-            <tr>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td class="tg-0lax" colspan="5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</td>
-            </tr>
-            <tr>
-                <td class="tg-alp9" colspan="5">1 - RELAÇÃO DE HARDWARE</td>
-            </tr>
-            <tr>
-                <td class="tg-g5ua" colspan="2" rowspan="2">Descrição</td>
-                <td class="tg-g5ua" rowspan="2">Valor Estimado</td>
-                <td class="tg-g5ua" rowspan="2">Quantidade</td>
-                <td class="tg-g5ua">Indicado&nbsp;&nbsp;&nbsp;para :</td>
-            </tr>
-            <tr>
-            <td class="tg-g5ua">Exame do Comitê (conforme Decreto XXXXX/XXXX )</td>
-            </tr>
-            {% for acao in hardwares %}
-            <tr>
-                <td class="tg-nrix" colspan="2">{{ acao.nome }}</td>
-                <td class="tg-nrix">{{ acao.valor }}</td>
-                <td class="tg-nrix">{{ acao.quantidade }}</td>
-                <td class="tg-nrix">{{ acao.indicacao_comite }}</td>
-            </tr>
-            {% endfor %}
-            <tr>
-            <td class="tg-nrix" colspan="2"> </td>
-            <td class="tg-cly1"> </td>
-            <td class="tg-nrix"> </td>
-            <td class="tg-nrix"> </td>
-            </tr>
-            <tr>
-            <td class="tg-alp9" colspan="5">2 - RELAÇÃO DE SOFTWARE</td>
-            </tr>
-            <tr>
-            <td class="tg-g5ua" colspan="2" rowspan="2">Ação</td>
-            <td class="tg-g5ua" rowspan="2">Valor Estimado</td>
-            <td class="tg-g5ua" rowspan="2">Quantidade</td>
-            <td class="tg-g5ua">Indicado&nbsp;&nbsp;&nbsp;para :</td>
-            </tr>
-            <tr>
-            <td class="tg-g5ua">Exame do Comitê (conforme Decreto XXXX/XXXX )</td>
-            </tr>
-            {% for acao in softwares %}
-            <tr>
-                <td class="tg-nrix" colspan="2">{{ acao.nome }}</td>
-                <td class="tg-nrix">{{ acao.valor }}</td>
-                <td class="tg-nrix">{{ acao.quantidade }}</td>
-                <td class="tg-nrix">{{ acao.indicacao_comite }}</td>
-            </tr>
-            {% endfor %}
-            <tr>
-            <td class="tg-nrix" colspan="2"> </td>
-            <td class="tg-cly1"> </td>
-            <td class="tg-nrix"> </td>
-            <td class="tg-nrix"> </td>
-            </tr>
-            <tr>
-            <td class="tg-alp9" colspan="5">3 - RELAÇÃO DE SERVIÇOS</td>
-            </tr>
-            <tr>
-            <td class="tg-g5ua" rowspan="2">Descrição</td>
-            <td class="tg-g5ua" rowspan="2">Valor Estimado</td>
-            <td class="tg-g5ua" rowspan="2">Comum ou Não Comum? (conforme art 7º, §2º e §3º)</td>
-            <td class="tg-g5ua" rowspan="2">Renovação de Contrato?</td>
-            <td class="tg-g5ua">Indicado&nbsp;&nbsp;&nbsp;para :</td>
-            </tr>
-            <tr>
-            <td class="tg-g5ua">Exame do Comitê (conforme Decreto XXXX/XXXX)</td>
-            </tr>
-            {% for acao in servicos %}
-            <tr>
-                <td class="tg-nrix">{{ acao.nome }}</td>
-                <td class="tg-nrix">{{ acao.valor }}</td>
-                <td class="tg-nrix">{{ acao.comum_ou_nao_comum }}</td>
-                <td class="tg-nrix">{{ acao.renovacao_de_contrato }}</td>
-                <td class="tg-nrix">{{ acao.indicacao_comite }}</td>
-            </tr>
-            {% endfor %}
-            <tr>
-            <td class="tg-nrix"> </td>
-            <td class="tg-nrix"></td>
-            <td class="tg-nrix"></td>
-            <td class="tg-nrix"></td>
-            <td class="tg-nrix"> </td>
-            </tr>
-            <tr>
-            <td class="tg-alp9" colspan="5">4 - RELAÇÃO DE SERVIÇOS PROD</td>
-            </tr>
-            <tr>
-            <td class="tg-g5ua" rowspan="2">Descrição</td>
-            <td class="tg-g5ua" rowspan="2">Valor Estimado</td>
-            <td class="tg-g5ua" rowspan="2">Obrigatório ou Não Obrigatório?</td>
-            <td class="tg-g5ua" rowspan="2">Renovação de Contrato?</td>
-            <td class="tg-g5ua">Indicado&nbsp;&nbsp;&nbsp;para :</td>
-            </tr>
-            <tr>
-            <td class="tg-g5ua">Exame do Comitê (conforme Decreto XXXX/XXXX)</td>
-            </tr>
-            {% for acao in servicos_prod %}
-            <tr>
-                <td class="tg-nrix">{{ acao.nome }}</td>
-                <td class="tg-nrix">{{ acao.valor }}</td>
-                <td class="tg-nrix">{{ acao.obrigatorio_ou_nao_obrigatorio }}</td>
-                <td class="tg-nrix">{{ acao.renovacao_de_contrato }}</td>
-                <td class="tg-nrix">{{ acao.indicacao_comite }}</td>
-            </tr>
-            {% endfor %}
-            <tr>
-            <td class="tg-nrix"> </td>
-            <td class="tg-cly1"> </td>
-            <td class="tg-nrix"> </td>
-            <td class="tg-nrix"> </td>
-            <td class="tg-nrix"> </td>
-            </tr>
-            <tr>
-            <td class="tg-alp9" colspan="5">5 - AVALIAÇÃO GERAL</td>
-            </tr>
-            <tr>
-            <td class="tg-3gwz" colspan="5">Marque apenas uma das opções abaixo</td>
-            </tr>
-            <tr>
-            <td class="tg-8d8j">(     x    &nbsp;&nbsp;&nbsp;)</td>
-            <td class="tg-cly1" colspan="4">Proposta recomendada com ressalvas</td>
-            </tr>
-            <tr>
-            <td class="tg-8d8j">(            )</td>
-            <td class="tg-cly1" colspan="4">Proposta recomendada sem ressalvas</td>
-            </tr>
-            <tr>
-            <td class="tg-3gwz" colspan="5">Considerações Finais do Avaliador</td>
-            </tr>
-            <tr>
-            <td class="tg-wa1i" colspan="5"> </td>
-            </tr>
-            <tr>
-            <td class="tg-3gwz" colspan="5">Considerações Finais do Comitê</td>
-            </tr>
-            <tr>
-            <td class="tg-yla0" colspan="5">1 - <br>2 - <br>3 - </td>
-            </tr>
-        </tbody>
-    </table>
+    <form action="." method="post"  enctype="multipart/form-data" target="_blank">
+        {{ formset.management_form }}
+        {% csrf_token %}
+        <table class="tg" style="table-layout: fixed; width: 1122px">
+            <colgroup>
+                <col style="width: 507px">
+                <col style="width: 131px">
+                <col style="width: 193px">
+                <col style="width: 96px">
+                <col style="width: 195px">
+            </colgroup>
+            <thead>
+                <tr>
+                    <th class="tg-o47a" colspan="5" rowspan="2">FICHA DE AVALIAÇÃO {{nome}}</th>
+                </tr>
+                <tr>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="tg-0lax" colspan="5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</td>
+                </tr>
+                <tr>
+                    <td class="tg-alp9" colspan="5">1 - RELAÇÃO DE HARDWARE</td>
+                </tr>
+                <tr>
+                    <td class="tg-g5ua" colspan="2" rowspan="2">Descrição</td>
+                    <td class="tg-g5ua" rowspan="2">Valor Estimado</td>
+                    <td class="tg-g5ua" rowspan="2">Quantidade</td>
+                    <td class="tg-g5ua">Indicado&nbsp;&nbsp;&nbsp;para :</td>
+                </tr>
+                <tr>
+                    <td class="tg-g5ua">Exame do Comitê (conforme Decreto XXXXX/XXXX )</td>
+                </tr>
+                {% for acao in acoes %}
+                    {% if acao.objeto == 'Hardware' %}
+                <tr>
+                    <td class="tg-nrix" colspan="2">{{ acao.nome }}</td>
+                    <td class="tg-nrix">{{ acao.valor }}</td>
+                    <td class="tg-nrix">{{ acao.quantidade }}</td>
+                    <td class="tg-nrix">{% for field in acao.indicacao %}{{ field }}{% endfor %}</td>
+                </tr>
+                    {% endif %}
+                {% endfor %}
+
+                <tr>
+                    <td class="tg-nrix" colspan="2"> </td>
+                    <td class="tg-cly1"> </td>
+                    <td class="tg-nrix"> </td>
+                    <td class="tg-nrix"> </td>
+                </tr>
+                <tr>
+                    <td class="tg-alp9" colspan="5">2 - RELAÇÃO DE SOFTWARE</td>
+                </tr>
+                <tr>
+                    <td class="tg-g5ua" colspan="2" rowspan="2">Ação</td>
+                    <td class="tg-g5ua" rowspan="2">Valor Estimado</td>
+                    <td class="tg-g5ua" rowspan="2">Quantidade</td>
+                    <td class="tg-g5ua">Indicado&nbsp;&nbsp;&nbsp;para :</td>
+                </tr>
+                <tr>
+                    <td class="tg-g5ua">Exame do Comitê (conforme Decreto XXXX/XXXX )</td>
+                </tr>
+                {% for acao in acoes %}
+                    {% if acao.objeto == 'Software' %}
+                <tr>
+                    <td class="tg-nrix" colspan="2">{{ acao.nome }}</td>
+                    <td class="tg-nrix">{{ acao.valor }}</td>
+                    <td class="tg-nrix">{{ acao.quantidade }}</td>
+                    <td class="tg-nrix">{% for field in acao.indicacao %}{{ field }}{% endfor %}</td>
+                </tr>
+                    {% endif %}
+                {% endfor %}
+                <tr>
+                    <td class="tg-nrix" colspan="2"> </td>
+                    <td class="tg-cly1"> </td>
+                    <td class="tg-nrix"> </td>
+                    <td class="tg-nrix"> </td>
+                </tr>
+                <tr>
+                    <td class="tg-alp9" colspan="5">3 - RELAÇÃO DE SERVIÇOS</td>
+                </tr>
+                <tr>
+                    <td class="tg-g5ua" rowspan="2">Descrição</td>
+                    <td class="tg-g5ua" rowspan="2">Valor Estimado</td>
+                    <td class="tg-g5ua" rowspan="2">Comum ou Não Comum? (conforme art 7º, §2º e §3º)</td>
+                    <td class="tg-g5ua" rowspan="2">Renovação de Contrato?</td>
+                    <td class="tg-g5ua">Indicado&nbsp;&nbsp;&nbsp;para :</td>
+                </tr>
+                <tr>
+                    <td class="tg-g5ua">Exame do Comitê (conforme Decreto XXXX/XXXX)</td>
+                </tr>
+
+                {% for acao in acoes %}
+                    {% if acao.objeto == 'Serviço Comum' or acao.objeto == 'Serviço Não Comum' %}
+                <tr>
+                    <td class="tg-nrix">{{ acao.nome }}</td>
+                    <td class="tg-nrix">{{ acao.valor }}</td>
+                    <td class="tg-nrix">{{ acao.objeto }}</td>
+                    <td class="tg-nrix">{{ acao.contrato_novo_ou_renovacao }}</td>
+                    <td class="tg-nrix">{% for field in acao.indicacao %}{{ field }}{% endfor %}</td>
+                </tr>
+                    {% endif %}
+                {% endfor %}
+
+                <tr>
+                    <td class="tg-nrix"> </td>
+                    <td class="tg-nrix"></td>
+                    <td class="tg-nrix"></td>
+                    <td class="tg-nrix"></td>
+                    <td class="tg-nrix"> </td>
+                </tr>
+                <tr>
+                    <td class="tg-alp9" colspan="5">4 - RELAÇÃO DE SERVIÇOS PROD</td>
+                </tr>
+                <tr>
+                    <td class="tg-g5ua" rowspan="2">Descrição</td>
+                    <td class="tg-g5ua" rowspan="2">Valor Estimado</td>
+                    <td class="tg-g5ua" rowspan="2">Obrigatório ou Não Obrigatório?</td>
+                    <td class="tg-g5ua" rowspan="2">Renovação de Contrato?</td>
+                    <td class="tg-g5ua">Indicado&nbsp;&nbsp;&nbsp;para :</td>
+                </tr>
+                <tr>
+                <td class="tg-g5ua">Exame do Comitê (conforme Decreto XXXX/XXXX)</td>
+                </tr>
+
+                {% for acao in acoes %}
+                    {% if acao.objeto == 'Prodeb Obrigatório' or acao.objeto == 'Prodeb Não Obrigatório' %}
+                <tr>
+                    <td class="tg-nrix">{{ acao.nome }}</td>
+                    <td class="tg-nrix">{{ acao.valor }}</td>
+                    <td class="tg-nrix">{{ acao.objeto }}</td>
+                    <td class="tg-nrix">{{ acao.contrato_novo_ou_renovacao }}</td>
+                    <td class="tg-nrix">{% for field in acao.indicacao %}{{ field }}{% endfor %}</td>
+                </tr>
+                    {% endif %}
+                {% endfor %}
+
+                <tr>
+                    <td class="tg-nrix"> </td>
+                    <td class="tg-cly1"> </td>
+                    <td class="tg-nrix"> </td>
+                    <td class="tg-nrix"> </td>
+                    <td class="tg-nrix"> </td>
+                </tr>
+                <tr>
+                    <td class="tg-alp9" colspan="5">5 - AVALIAÇÃO GERAL</td>
+                </tr>
+                <tr>
+                <td class="tg-3gwz" colspan="5">Marque apenas uma das opções abaixo</td>
+                </tr>
+                <tr>
+                    <td class="tg-8d8j">(     x    &nbsp;&nbsp;&nbsp;)</td>
+                    <td class="tg-cly1" colspan="4">Proposta recomendada com ressalvas</td>
+                </tr>
+                <tr>
+                    <td class="tg-8d8j">(            )</td>
+                    <td class="tg-cly1" colspan="4">Proposta recomendada sem ressalvas</td>
+                </tr>
+                <tr>
+                <td class="tg-3gwz" colspan="5">Considerações Finais do Avaliador</td>
+                </tr>
+                <tr>
+                <td class="tg-wa1i" colspan="5"> </td>
+                </tr>
+                <tr>
+                <td class="tg-3gwz" colspan="5">Considerações Finais do Comitê</td>
+                </tr>
+                <tr>
+                <td class="tg-yla0" colspan="5">1 - <br>2 - <br>3 - </td>
+                </tr>
+            </tbody>
+        </table>
+        <input type="submit" name='btn_print' value="Imprimir"/>
+    </form>
 </body>
 </html>

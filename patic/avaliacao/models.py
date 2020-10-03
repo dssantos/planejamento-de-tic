@@ -6,36 +6,16 @@ from patic.core.models import moeda
 def ficha_avaliacao_context(docfile):
     
     nome = docfile.name[:-5]
-    frame = raw_dataset(docfile)
-    hardwares = [{
+    frame = raw_dataset(docfile)    
+    acoes = [{
         'nome': row['acao'],
-        'valor': f"R$ {moeda(row['valor'])}",
+        'objeto': row['objeto'],
+        'contrato_novo_ou_renovacao': row['contrato_novo_ou_renovacao'],
         'quantidade': row['quantidade'],
-        'indicacao_comite': 'Não'
-        } for index, row in frame.iterrows() if row['objeto'] == 'Hardware']
-    softwares = [{
-        'nome': row['acao'],
-        'valor': f"R$ {moeda(row['valor'])}",
-        'quantidade': row['quantidade'],
-        'indicacao_comite': 'Não'
-        } for index, row in frame.iterrows() if row['objeto'] == 'Software']
-    servicos = [{
-        'nome': row['acao'],
-        'valor': f"R$ {moeda(row['valor'])}",
-        'comum_ou_nao_comum': row['objeto'],
-        'renovacao_de_contrato': row['contrato_novo_ou_renovacao'],
-        'indicacao_comite': 'Não'
-        } for index, row in frame.iterrows() if row['objeto'] in ['Serviço Comum', 'Serviço Não Comum']]
-    servicos_prod = [{
-        'nome': row['acao'],
-        'valor': f"R$ {moeda(row['valor'])}",
-        'obrigatorio_ou_nao_obrigatorio': row['objeto'],
-        'renovacao_de_contrato': row['contrato_novo_ou_renovacao'],
-        'indicacao_comite': 'Não'
-        } for index, row in frame.iterrows() if row['objeto'] in ['Prodeb Obrigatório', 'Prodeb Não Obrigatório']]
-    
-    return {'hardwares': hardwares, 'softwares': softwares, 
-            'servicos': servicos, 'servicos_prod': servicos_prod, 'nome':nome, 'frame': frame}
+        'valor': f"R$ {moeda(row['valor'])}"
+        } for index, row in frame.iterrows()]
+
+    return {'acoes': acoes, 'nome':nome}
 
 def raw_dataset(file):
     
