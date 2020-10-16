@@ -9,6 +9,7 @@ def ficha_avaliacao_context(docfile):
     frame = raw_dataset(docfile)    
     acoes = [{
         'nome': row['acao'],
+        'unidade': row['unidade'],
         'objeto': row['objeto'],
         'contrato_novo_ou_renovacao': row['contrato_novo_ou_renovacao'],
         'quantidade': row['quantidade'],
@@ -26,5 +27,6 @@ def raw_dataset(file):
     df.columns = ['unidade', 'acao', 'justificativa', 'especificacao_do_item', 'objeto', 
                   'duracao', 'contrato_novo_ou_renovacao', 'quantidade', 'valor']
     df = df.dropna(subset=['acao'])
+    df = df.where(pd.notnull(df), None)
     df = df.reset_index(drop=True)
     return df
