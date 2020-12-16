@@ -37,12 +37,7 @@
     </style>
 </head>
 <body>
-    <br>
-    <a href="/" class="button">Página Inicial</a>
-    <a href="#" class="button">Imprimir</a>
-    <br>
-
-    <h1>Selecione uma Planilha de Ações</h1>
+    <h3>Selecione uma Planilha de Ações e preencha os dados da Ficha e Avaliação</h3>
     <div>
         <form action="." method="post" enctype="multipart/form-data">
             {% csrf_token %}
@@ -50,7 +45,57 @@
                 {{ form.planilha_de_acao.errors }}
                 {{ form.planilha_de_acao }}
             </div>
-            <p><input type="submit" name='btn_upload', value="Gerar Ficha de Avaliação"/></p>
+            <br>
+            <div>
+                {{ form.orgao.errors }}
+                {{ form.orgao.label_tag }}
+                {{ form.orgao }}
+            </div>
+            <div>
+                {{ form.doc_rel_acoes.errors }}
+                {{ form.doc_rel_acoes.label_tag }}
+                {{ form.doc_rel_acoes }}
+            </div>
+            <div>
+                {{ form.avaliador1.errors }}
+                {{ form.avaliador1.label_tag }}
+                {{ form.avaliador1 }}
+                {{ form.orgao_avaliador1.errors }}
+                {{ form.orgao_avaliador1.label_tag }}
+                {{ form.orgao_avaliador1 }}
+            </div>
+            <div>
+                {{ form.avaliador2.errors }}
+                {{ form.avaliador2.label_tag }}
+                {{ form.avaliador2 }}
+                {{ form.orgao_avaliador2.errors }}
+                {{ form.orgao_avaliador2.label_tag }}
+                {{ form.orgao_avaliador2 }}
+            </div>
+            <div>
+                {{ form.avaliador3.errors }}
+                {{ form.avaliador3.label_tag }}
+                {{ form.avaliador3 }}
+                {{ form.orgao_avaliador3.errors }}
+                {{ form.orgao_avaliador3.label_tag }}
+                {{ form.orgao_avaliador3 }}
+            </div>
+            <div>
+                {{ form.representante_sgi.errors }}
+                {{ form.representante_sgi.label_tag }}
+                {{ form.representante_sgi }}
+            </div>
+            <div>
+                {{ form.representante_prodeb.errors }}
+                {{ form.representante_prodeb.label_tag }}
+                {{ form.representante_prodeb }}
+            </div>
+            <div>
+                {{ form.consideracoes_avaliador.errors }}
+                {{ form.consideracoes_avaliador.label_tag }}
+                {{ form.consideracoes_avaliador }}
+            </div>
+            <p><input class="button" type="submit" name='btn_upload', value="Gerar Ficha de Avaliação"/></p>
         </form>
     </div>
 

@@ -37,11 +37,6 @@
     </style>
 </head>
 <body>
-    <br>
-    <a href="/" class="button">Página Inicial</a>
-    <a href="#" class="button">Imprimir</a>
-    <br>
-
     <form action="." method="post"  enctype="multipart/form-data" target="_blank">
         {{ formset.management_form }}
         {% csrf_token %}
@@ -62,19 +57,30 @@
             </thead>
             <tbody>
                 <tr>
-                    <td class="tg-0lax" colspan="5">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</td>
+                    <td class="tg-0lax" colspan="5">
+<p>Em termos estritamente relacionados a Tecnologia da Informação e Comunicação (TIC), indicamos a aprovação do presente plano de aquisição, representado no relatório de ações documento n° {{ doc_rel_acoes }}.</p>
+
+<p>Neste sentido, no que se refere a TIC, não visualizamos óbices ao prosseguimento do processo administativo específico de contratação ou aquisição.</p>
+
+<p>As ações indicadas deverão ser submetidas posteriormente a novo exame do FORTIC, através de processo adminstrativo específico, instruído com as informações e os documentos necessários para a avaliação, conforme orientação da Superintendência da Gestão e Inovação (SGI).</p>
+
+<p>Segue abaixo o resumo do planejamento de TIC  2021  do(a)  {{ orgao }},  com a  assinatura do Comitê de Gestores de Tecnologia de Informação e Comunicação do Estado da Bahia (FORTIC):</p>
+
+{% if avaliador1 %}<p>• {{ avaliador1 }} ({{ orgao_avaliador1 }}); </p>{% endif %}
+{% if avaliador2 %}<p>• {{ avaliador2 }} ({{ orgao_avaliador2 }});</p>{% endif %}
+{% if avaliador3 %}<p>• {{ avaliador3 }} ({{ orgao_avaliador3 }});</p>{% endif %}
+{% if representante_sgi %}<p>• {{ representante_sgi }} (SAEB);</p>{% endif %}
+{% if representante_prodeb %}<p>• {{ representante_prodeb }} (PRODEB).</p>{% endif %}
+                    </td>
                 </tr>
                 <tr>
                     <td class="tg-alp9" colspan="5">1 - RELAÇÃO DE HARDWARE</td>
                 </tr>
                 <tr>
-                    <td class="tg-g5ua" colspan="2" rowspan="2">Descrição</td>
-                    <td class="tg-g5ua" rowspan="2">Valor Estimado</td>
-                    <td class="tg-g5ua" rowspan="2">Quantidade</td>
-                    <td class="tg-g5ua">Indicado&nbsp;&nbsp;&nbsp;para :</td>
-                </tr>
-                <tr>
-                    <td class="tg-g5ua">Exame do Comitê (conforme Decreto XXXXX/XXXX )</td>
+                    <td class="tg-g5ua" colspan="2">Ação</td>
+                    <td class="tg-g5ua">Valor Estimado</td>
+                    <td class="tg-g5ua">Quantidade</td>
+                    <td class="tg-g5ua">Indicado para Exame do Comitê (conforme Decreto nº 15.404/2014):</td>
                 </tr>
                 {% for acao in acoes %}
                     {% if acao.objeto == 'Hardware' %}
@@ -99,13 +105,11 @@
                     <td class="tg-alp9" colspan="5">2 - RELAÇÃO DE SOFTWARE</td>
                 </tr>
                 <tr>
-                    <td class="tg-g5ua" colspan="2" rowspan="2">Ação</td>
-                    <td class="tg-g5ua" rowspan="2">Valor Estimado</td>
-                    <td class="tg-g5ua" rowspan="2">Quantidade</td>
-                    <td class="tg-g5ua">Indicado&nbsp;&nbsp;&nbsp;para :</td>
-                </tr>
                 <tr>
-                    <td class="tg-g5ua">Exame do Comitê (conforme Decreto XXXX/XXXX )</td>
+                    <td class="tg-g5ua" colspan="2">Ação</td>
+                    <td class="tg-g5ua">Valor Estimado</td>
+                    <td class="tg-g5ua">Quantidade</td>
+                    <td class="tg-g5ua">Indicado para Exame do Comitê (conforme Decreto nº 15.404/2014):</td>
                 </tr>
                 {% for acao in acoes %}
                     {% if acao.objeto == 'Software' %}
@@ -129,15 +133,11 @@
                     <td class="tg-alp9" colspan="5">3 - RELAÇÃO DE SERVIÇOS</td>
                 </tr>
                 <tr>
-                    <td class="tg-g5ua" rowspan="2">Descrição</td>
-                    <td class="tg-g5ua" rowspan="2">Valor Estimado</td>
-                    <td class="tg-g5ua" rowspan="2">Comum ou Não Comum? (conforme art 7º, §2º e §3º)</td>
-                    <td class="tg-g5ua" rowspan="2">Renovação de Contrato?</td>
-                    <td class="tg-g5ua">Indicado&nbsp;&nbsp;&nbsp;para :</td>
-                </tr>
-                <tr>
-                    <td class="tg-g5ua">Exame do Comitê (conforme Decreto XXXX/XXXX)</td>
-                </tr>
+                    <td class="tg-g5ua">Ação</td>
+                    <td class="tg-g5ua">Valor Estimado</td>
+                    <td class="tg-g5ua">Comum ou Não Comum? (conforme art 7º, §2º e §3º)</td>
+                    <td class="tg-g5ua">Renovação de Contrato?</td>
+                    <td class="tg-g5ua">Indicado para Exame do Comitê (conforme Decreto nº 15.404/2014):</td>
 
                 {% for acao in acoes %}
                     {% if acao.objeto == 'Serviço Comum' or acao.objeto == 'Serviço Não Comum' %}
@@ -164,15 +164,11 @@
                     <td class="tg-alp9" colspan="5">4 - RELAÇÃO DE SERVIÇOS PROD</td>
                 </tr>
                 <tr>
-                    <td class="tg-g5ua" rowspan="2">Descrição</td>
-                    <td class="tg-g5ua" rowspan="2">Valor Estimado</td>
-                    <td class="tg-g5ua" rowspan="2">Obrigatório ou Não Obrigatório?</td>
-                    <td class="tg-g5ua" rowspan="2">Renovação de Contrato?</td>
-                    <td class="tg-g5ua">Indicado&nbsp;&nbsp;&nbsp;para :</td>
-                </tr>
-                <tr>
-                <td class="tg-g5ua">Exame do Comitê (conforme Decreto XXXX/XXXX)</td>
-                </tr>
+                    <td class="tg-g5ua">Ação</td>
+                    <td class="tg-g5ua">Valor Estimado</td>
+                    <td class="tg-g5ua">Obrigatório ou Não Obrigatório?</td>
+                    <td class="tg-g5ua">Renovação de Contrato?</td>
+                    <td class="tg-g5ua">Indicado para Exame do Comitê (conforme Decreto nº 15.404/2014):</td>
 
                 {% for acao in acoes %}
                     {% if acao.objeto == 'Prodeb Obrigatório' or acao.objeto == 'Prodeb Não Obrigatório' %}
@@ -202,28 +198,37 @@
                 <td class="tg-3gwz" colspan="5">Marque apenas uma das opções abaixo</td>
                 </tr>
                 <tr>
-                    <td class="tg-8d8j">(     x    &nbsp;&nbsp;&nbsp;)</td>
+                    <td class="tg-8d8j">(x)</td>
                     <td class="tg-cly1" colspan="4">Proposta recomendada com ressalvas</td>
                 </tr>
                 <tr>
-                    <td class="tg-8d8j">(            )</td>
+                    <td class="tg-8d8j">( )</td>
                     <td class="tg-cly1" colspan="4">Proposta recomendada sem ressalvas</td>
                 </tr>
                 <tr>
                 <td class="tg-3gwz" colspan="5">Considerações Finais do Avaliador</td>
                 </tr>
                 <tr>
-                <td class="tg-wa1i" colspan="5"> </td>
+                <td class="tg-0lax" colspan="5">{{ consideracoes_avaliador }}</td>
                 </tr>
                 <tr>
                 <td class="tg-3gwz" colspan="5">Considerações Finais do Comitê</td>
                 </tr>
                 <tr>
-                <td class="tg-yla0" colspan="5">1 - <br>2 - <br>3 - </td>
+                <td class="tg-0lax" colspan="5">
+<p>1 - No momento das aquisições e contratações consultar a existência  de Registro de Preços da SAEB. </p>
+<p>2 - Conforme previsto no Art. 12 do Decreto nº 15.404/2014, o documento base para a contratação de serviços deverá ser o Termo de Referência (TR). Os órgãos ou entidades podem utilizar os TRs modelos disponibilizados no site do Fortic.</p>
+<p>3 - Os órgãos ou entidades da Administração Pública do Poder Executivo Estadual, quando da instauração de  processos de contratações de serviços e aquisições de bens, bem como os seus termos de aditamento, deverão observar e adotar os procedimentos previstos no Decreto nº 19.551/2020, alterado pelo Decreto nº 19.733/2020, de 01/06/2020, que restabelece os Decretos nº 15.924/2015 e 16.417/2015, os quais produzirão seus efeitos quanto aos dispositivos que não conflitem com o disposto no Decreto nº 19.551/2020.                                                                                                                                                                                                                                                                                                                                                                                                                         4 - Compete à Superintendência da Gestão e Inovação - SGI -  aprovar a natureza estratégica dos serviços Prodeb categorizados como de conveniência da Administração Estadual, conforme Instrução Normativa nº 021/2018 da SAEB, alterada pela Instrução Normativa nº 002/2020.</p>
+<p>5 - Foram observados os itens estritamente relacionados à tecnologia da informação. Desta forma, os orçamentos devem ser realizados e validados pelo próprio órgão ou entidade.</p>
+<p>6 - Os órgãos ou entidades da Administração Pública do Poder Executivo Estadual, quando da contratação de cursos, seminários, congressos, simpósios e outras formas de capacitação e treinamento de servidores públicos, inclusive instrutoria interna, deverão observar e adotar os procedimentos previstos no Decreto nº 19.551/2020, alterado pelo Decreto nº 19.733/2020, e na Instrução Normativa nº 16/2015.</p>
+<p>7 - Nas licitações de bens ou serviços de TIC considerados comuns, na forma do art. 108 da Lei nº 9.433, de 01 de março de 2005, deverá ser adotado como critério de julgamento o de menor preço e a modalidade pregão, preferencialmente na forma eletrônica, devendo o órgão ou entidade justificar, fundamentadamente, as razões para sua não adoção.</p>
+<p>8 - Conforme previsto no art. 3º do Decreto nº 15.404/2014, é vedada a aquisição de mais de uma solução de TIC em um único contrato e a contratação da gestão da área de TIC.</p>
+<p>9 -  Conforme previsto no art. 9º, inciso II, do Decreto nº 15.404/2014 , verificar se existem soluções que atendam às necessidades do requisitante e aos requisitos da aquisição ou contratação.</p>
+                </td>
                 </tr>
             </tbody>
         </table>
-        <input type="submit" name='btn_print' value="Imprimir"/>
+        <!-- <input type="submit" name='btn_print' value="Imprimir"/> -->
     </form>
 </body>
 </html>
