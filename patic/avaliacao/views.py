@@ -10,6 +10,7 @@ def avaliacao(request):
         form = AvaliacaoForm(request.POST, request.FILES)
         if form.is_valid():
             context = ficha_avaliacao_context(request.FILES['planilha_de_acao'])
+            context['ano'] = form.cleaned_data['ano']
             context['orgao'] = form.cleaned_data['orgao']
             context['doc_rel_acoes'] = form.cleaned_data['doc_rel_acoes']
             context['avaliador1'] = form.cleaned_data['avaliador1']

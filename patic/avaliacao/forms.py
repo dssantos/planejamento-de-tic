@@ -4,6 +4,7 @@ from django import forms
 class AvaliacaoForm(forms.Form):
     planilha_de_acao = forms.FileField()
     doc_rel_acoes = forms.CharField(max_length=100)
+    ano = forms.CharField(max_length=4)
     orgao = forms.CharField(max_length=100)
     avaliador1 = forms.CharField(max_length=100, required=False)
     orgao_avaliador1 = forms.CharField(max_length=100, required=False)
