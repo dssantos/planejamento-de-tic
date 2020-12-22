@@ -44,5 +44,5 @@ e a página exibe um botão para imprimir a Ficha de Avaliação'''
         form = self.resp.context['form']
         self.assertSequenceEqual(['planilha_de_acao', 'doc_rel_acoes', 'ano', 'orgao', 'avaliador1', 
                                   'orgao_avaliador1', 'avaliador2', 'orgao_avaliador2', 'avaliador3', 
-                                  'orgao_avaliador3', 'representante_sgi', 'representante_prodeb',
-                                  'consideracoes_avaliador'], list(form.fields))
+                                  'orgao_avaliador3', 'avaliador4', 'orgao_avaliador4', 'representante_sgi', 
+                                  'representante_prodeb', 'consideracoes_avaliador'], list(form.fields))
