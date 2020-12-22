@@ -19,4 +19,4 @@ class AvaliacaoForm(forms.Form):
 
 class PrintAvaliacaoForm(forms.Form):
     options = (('Não','Não'), ('Sim','Sim'))
-    indicacao = forms.ChoiceField(choices=options)
+    indicacao = forms.ChoiceField(choices=options, widget=forms.Select(attrs={'class':'indicacao-dropdown'}))

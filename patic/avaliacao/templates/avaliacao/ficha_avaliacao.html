@@ -3,8 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ficha de Avaliação</title>
+    <title>Ficha de Avaliação {{orgao}} {{ ano }}</title>
     <style type="text/css">
+        {% comment %} html, body {
+            width: 100%;
+        }
+        table {
+            margin: 0 auto;
+        } {% endcomment %}
 
         .button {
           background-color: #008CBA;
@@ -27,13 +33,18 @@
         .tg .tg-cly1{text-align:left;vertical-align:middle}
         .tg .tg-alp9{background-color:#002060;color:#FFF;font-weight:bold;text-align:left;vertical-align:middle}
         .tg .tg-wa1i{font-weight:bold;text-align:center;vertical-align:middle}
-        .tg .tg-o47a{background-color:#036;color:#FFF;font-weight:bold;text-align:center;vertical-align:middle}
+        .tg .titulo-ficha{background-color:#036;color:#FFF;font-weight:bold;text-align:center;vertical-align:middle;font-size:24px}
         .tg .tg-0lax{text-align:left;vertical-align:top}
         .tg .tg-g5ua{background-color:#9CF;text-align:center;vertical-align:middle}
         .tg .tg-nrix{text-align:center;vertical-align:middle}
         .tg .tg-3gwz{background-color:#9CF;font-weight:bold;text-align:center;vertical-align:middle}
         .tg .tg-8d8j{text-align:center;vertical-align:bottom}
         .tg .tg-yla0{font-weight:bold;text-align:left;vertical-align:middle}
+
+        .indicacao-dropdown{
+            border: 0;
+            appearance: none;
+        }
     </style>
 </head>
 <body>
@@ -50,7 +61,7 @@
             </colgroup>
             <thead>
                 <tr>
-                    <th class="tg-o47a" colspan="5" rowspan="2">FICHA DE AVALIAÇÃO {{orgao}} {{ ano }}</th>
+                    <th class="titulo-ficha" colspan="5" rowspan="2">FICHA DE AVALIAÇÃO {{orgao}} {{ ano }}</th>
                 </tr>
                 <tr>
                 </tr>
