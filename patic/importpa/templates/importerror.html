@@ -4,9 +4,34 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Importar PA</title>
+    <style type="text/css">
+
+        .button {
+          background-color: #008CBA;
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+        }
+
+    </style>
 </head>
 <body>
-    <h3>Foram encontrados erros</h3>
-    <p>Erro </p>
+    <h3>Foram encontrados erros no arquivo:</h3>
+    <p>{{planilha_de_acao}}</p>
+    {{errors|safe}}
+    <p>Corriga os erros informados no arquivo e faça upload novamente.</p>
+    <button class="button" onclick="goBack()">Voltar</button>
+
+    <script>
+    function goBack() {
+        window.history.back();
+    }
+    </script>
 </body>
 </html>
