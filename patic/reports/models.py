@@ -9,7 +9,7 @@ def dadospa():
     xl = pd.ExcelFile(filepath('Ação'))
     df = xl.parse("Planejamento")
     df = df.iloc[6:]
-    df = df.dropna(subset=['Unnamed: 1'])
+    df = df.dropna(subset=['Unnamed: 2'])
     df = df.drop(df.index[0])
     df = df.reset_index(drop=True)
     return df
