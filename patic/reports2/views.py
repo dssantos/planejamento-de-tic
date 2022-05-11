@@ -24,6 +24,7 @@ def report2(request):
     orgao = filename.replace('  ', ' ').replace('Execução PA ', '').replace('Execucao PA ', '').replace(' (ultimo)', '')[:-5]
     ano_value = filename.replace('  ', ' ').replace('Execução PA ', '').replace('Execucao PA ', '').replace(' (ultimo)', '')[-4:]
     df = dadospa()
+    invalido = '<font color = "red">VALOR INVÁLIDO</font>'
 
     for index, row in df.iterrows():
 
@@ -35,11 +36,23 @@ def report2(request):
 
         acao = Paragraph('<font size=12><b>Ação:</b><br /><br />{}</font>'.format(row[1]), style)
         contrato = Paragraph('<font size=12><b>{}</b></font>'.format(row[6]), style)
-        quantidade = Paragraph('<font size=12><b>Quantidade Planejada:</b> {}</font>'.format(row[7]), style)
-        quantidade_exec = Paragraph('<font size=12><b>Quantidade Executada:</b> {}</font>'.format(row[10]), style) if contratada else ""
+        try:
+            quantidade = Paragraph('<font size=12><b>Quantidade Planejada:</b> {}</font>'.format(row[7]), style)
+        except:
+            quantidade = Paragraph('<font size=12><b>Quantidade Planejada:</b> {}</font>'.format(invalido), style)
+        try:
+            quantidade_exec = Paragraph('<font size=12><b>Quantidade Executada:</b> {}</font>'.format(row[10]), style) if contratada else ""
+        except:
+            quantidade_exec = Paragraph('<font size=12><b>Quantidade Executada:</b> {}</font>'.format(invalido), style) if contratada else ""
         execucao_fisica = Paragraph('<font size=12><b>Execução Física:</b> {} %</font>'.format(round(row[10]/row[7]*100,0)), style) if contratada else ""
-        valor = Paragraph('<font size=12><b>Valor Planejado:</b> R$ {}</font>'.format(moeda(row[8])), style)
-        valor_exec = Paragraph('<font size=12><b>Valor Executado:</b> R$ {}</font>'.format(moeda(row[11])), style) if contratada else ""
+        try:
+            valor = Paragraph('<font size=12><b>Valor Planejado:</b> R$ {}</font>'.format(moeda(row[8])), style)
+        except:
+            valor = Paragraph('<font size=12><b>Valor Planejado:</b> {}</font>'.format(invalido), style)
+        try:
+            valor_exec = Paragraph('<font size=12><b>Valor Executado:</b> R$ {}</font>'.format(moeda(row[11])), style) if contratada else ""
+        except:
+            valor_exec = Paragraph('<font size=12><b>Valor Executado:</b> R$ {}</font>'.format(invalido), style) if contratada else ""
         execucao_financeira = Paragraph('<font size=12><b>Execução Financeira:</b> {} %</font>'.format(round(row[11]/row[8]*100,0)), style) if contratada else ""
         status = Paragraph('<font size=12><b>Status da Ação:</b> {}</font>'.format(row[9]), styles['Normal'])
         motivo = Paragraph('<font size=12><b>Motivo:</b> {}</font>'.format(row[12]), styles['Normal']) if cancelada else ""

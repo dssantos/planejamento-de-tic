@@ -4,7 +4,6 @@ import pandas as pd
 from patic.core.models import moeda
 
 def ficha_avaliacao_context(docfile):
-    print(type(docfile))
     
     nome = docfile.name[:-5]
     frame = raw_dataset(docfile)    
@@ -20,7 +19,6 @@ def ficha_avaliacao_context(docfile):
     return {'acoes': acoes, 'nome':nome}
 
 def raw_dataset(file):
-    print(type(file))
     
     df = pd.ExcelFile(file)
     df = df.parse("Planejamento")
