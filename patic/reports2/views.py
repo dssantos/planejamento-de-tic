@@ -1,4 +1,5 @@
 import io
+import pandas as pd
 
 from django.http import FileResponse
 from reportlab.lib import colors
@@ -33,8 +34,9 @@ def report2(request):
         nomerelatorio = Paragraph("<bold><font size=20 color='white'>Relatório de Execução</font></bold>", style)
         nomeorgao = Paragraph("<bold><font size=25 color='white'>{}</font></bold>".format(orgao), style)
         ano = Paragraph("<bold><font size=25 color='white'>{}</font></bold>".format(ano_value), style)
+        unidade = "" if pd.isna(row[0]) else "{} - ".format(row[0])
 
-        acao = Paragraph('<font size=12><b>Ação:</b><br /><br />{}</font>'.format(row[1]), style)
+        acao = Paragraph('<font size=12><b>Ação:</b><br /><br />{}{}</font>'.format(unidade, row[1]), style)
         contrato = Paragraph('<font size=12><b>{}</b></font>'.format(row[6]), style)
         try:
             quantidade = Paragraph('<font size=12><b>Quantidade Planejada:</b> {}</font>'.format(row[7]), style)
