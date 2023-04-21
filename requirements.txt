@@ -8,7 +8,7 @@ python-decouple==3.3
 pytz==2019.3
 reportlab==3.5.32
 six==1.13.0
-sqlparse==0.3.0
+sqlparse==0.4.4
 xlrd==1.2.0
 dj-database-url
 dj-static
