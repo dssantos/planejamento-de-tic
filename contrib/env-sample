@@ -1,7 +1,9 @@
 #PASTA_ACAO=\\server\exemplo_de_pasta_remota\
 #PASTA_EXEC=/home/danilo/exemplo_de_pasta_local/
+#PASTA_EXCEP=/home/danilo/exemplo_de_pasta_local/
 PASTA_ACAO=./contrib/plan
 PASTA_EXEC=./contrib/exec
+PASTA_EXCEP=./contrib/excep
 DEBUG=True
 SECRET_KEY=INSIRA_AQUI
 ALLOWED_HOSTS=127.0.0.1, .localhost, .herokuap.com, .dokku.local

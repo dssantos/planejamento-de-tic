@@ -18,6 +18,7 @@ from django.urls import path
 from patic.core.views import home
 from patic.reports.views import report
 from patic.reports2.views import report2
+from patic.reports3.views import report3
 from patic.avaliacao.views import avaliacao
 from patic.importpa.views import importpa
 
@@ -25,6 +26,7 @@ urlpatterns = [
     path('', home),
     path('report/', report),
     path('report2/', report2),
+    path('report3/', report3),
     path('avaliacao/', avaliacao),
     path('importpa/', importpa),
     path('admin/', admin.site.urls),

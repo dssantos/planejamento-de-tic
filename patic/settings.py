@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'patic.core',
     'patic.reports',
     'patic.reports2',
+    'patic.reports3',
     'patic.importpa',
     'patic.avaliacao'
 ]

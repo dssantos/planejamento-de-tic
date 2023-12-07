@@ -19,6 +19,8 @@ def filepath(report_type):
         file_path = config('PASTA_ACAO', default=".\contrib\plan")   # Formato Unix
     if report_type == 'Execução':
         file_path = config('PASTA_EXEC', default=".\contrib\exec")   # Formato Unix
+    if report_type == 'Excepcionalidade':
+        file_path = config('PASTA_EXCEP', default=".\contrib\excep")   # Formato Unix
 
     files = []
 
