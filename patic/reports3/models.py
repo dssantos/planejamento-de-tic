@@ -12,3 +12,11 @@ def dadospa():
     df = df.drop(df.index[0])
     df = df.reset_index(drop=True)
     return df
+
+def file_acoes_to_df(file):
+    xl = pd.ExcelFile(file)
+    df = xl.parse("Execução")
+    df = df.dropna(subset=['Unnamed: 1'])
+    df = df.drop(df.index[0])
+    df = df.reset_index(drop=True)
+    return df
