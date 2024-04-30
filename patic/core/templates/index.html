@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Plano de Aquisição - Gerador de Relatórios</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
         .custom-header {
             background-color: #005A80;
@@ -15,7 +16,7 @@
         .custom-card {
             background-color: #008CBA;
             text-align: center; /* Centraliza o texto horizontalmente */
-            padding: 50px 10px 50px 10px; /* Adjust the padding as needed */
+            padding: 20px 10px 20px 10px; /* Adjust the padding as needed */
             transition: background-color 0.3s ease; /* Efeito de transição ao passar o mouse */
         }
         .custom-card:hover {
@@ -25,6 +26,9 @@
         .custom-title {
             text-align: center; /* Centraliza o título */
             margin-bottom: 20px; /* Afasta o título dos cards */
+        }
+        .icon-large {
+            font-size: 4rem; /* Ajuste o tamanho conforme necessário */
         }
     </style>
 </head>
@@ -38,6 +42,7 @@
             <div class="col-md-6">
                 <a href="/report/" class="card custom-card text-white mb-4">
                     <div class="card-body">
+                        <i class="bi bi-pencil-square icon-large"></i>
                         <h3 class="card-title">Relatório de Ações</h3>
                     </div>
                 </a>
@@ -45,6 +50,7 @@
             <div class="col-md-6">
                 <a href="/report2/" class="card custom-card text-white mb-4">
                     <div class="card-body">
+                        <i class="bi bi-currency-dollar icon-large"></i>
                         <h3 class="card-title">Relatório de Execuções</h3>
                     </div>
                 </a>
@@ -52,6 +58,7 @@
             <div class="col-md-6">
                 <a href="/report3/" class="card custom-card text-white mb-4">
                     <div class="card-body">
+                        <i class="bi bi-clock-history icon-large"></i>
                         <h3 class="card-title">Relatório de Excepcionalidades</h3>
                     </div>
                 </a>
@@ -59,6 +66,7 @@
             <div class="col-md-6">
                 <a href="/avaliacao/" class="card custom-card text-white mb-4">
                     <div class="card-body">
+                        <i class="bi bi-clipboard2-check icon-large"></i>
                         <h3 class="card-title">Ficha de Avaliação</h3>
                     </div>
                 </a>
