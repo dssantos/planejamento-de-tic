@@ -7,7 +7,7 @@ from patic.core.models import filepath
 
 def dadospa():
     xl = pd.ExcelFile(filepath('Excepcionalidade'))
-    df = xl.parse("Execução")
+    df = xl.parse("Excepcionalidade")
     df = df.dropna(subset=['Unnamed: 1'])
     df = df.drop(df.index[0])
     df = df.reset_index(drop=True)
@@ -15,7 +15,7 @@ def dadospa():
 
 def file_acoes_to_df(file):
     xl = pd.ExcelFile(file)
-    df = xl.parse("Execução")
+    df = xl.parse("Excepcionalidade")
     df = df.dropna(subset=['Unnamed: 1'])
     df = df.drop(df.index[0])
     df = df.reset_index(drop=True)
