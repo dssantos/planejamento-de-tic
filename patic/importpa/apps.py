@@ -2,4 +2,4 @@ from django.apps import AppConfig
 
 
 class ImportpaConfig(AppConfig):
-    name = 'importpa'
+    name = 'patic.importpa'
