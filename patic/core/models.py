@@ -11,16 +11,16 @@ def moeda(v):
 
 def clearnumber(n):
     # Remove caracteres indesejados
-    n = re.sub('[^0-9\.].', '', str(n))
+    n = re.sub(r'[^0-9.].', '', str(n))
     return float(n)
 
 def filepath(report_type):
     if report_type == 'Ação':
-        file_path = config('PASTA_ACAO', default=".\contrib\plan")   # Formato Unix
+        file_path = config('PASTA_ACAO', default=r".\contrib\plan")
     if report_type == 'Execução':
-        file_path = config('PASTA_EXEC', default=".\contrib\exec")   # Formato Unix
+        file_path = config('PASTA_EXEC', default=r".\contrib\exec")
     if report_type == 'Excepcionalidade':
-        file_path = config('PASTA_EXCEP', default=".\contrib\excep")   # Formato Unix
+        file_path = config('PASTA_EXCEP', default=r".\contrib\excep")
 
     files = []
 
