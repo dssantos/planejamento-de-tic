@@ -39,7 +39,7 @@ def report2(request):
                 nomerelatorio = Paragraph("<bold><font size=20 color='white'>Relatório de Execução</font></bold>", style)
                 nomeorgao = Paragraph("<bold><font size=25 color='white'>{}</font></bold>".format(orgao), style)
                 ano = Paragraph("<bold><font size=25 color='white'>{}</font></bold>".format(ano_value), style)
-                unidade = "" if pd.isna(row[0]) else "{} - ".format(row[0])
+                unidade = "{} - ".format(orgao) if pd.isna(row[0]) else "{} - ".format(row[0])
 
                 acao = Paragraph('<font size=12><b>Ação:</b><br /><br />{}{}</font>'.format(unidade, row[1]), style)
                 contrato = Paragraph('<font size=12><b>{}</b></font>'.format(row[6]), style)

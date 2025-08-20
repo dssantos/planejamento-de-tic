@@ -37,7 +37,7 @@ def report(request):
                 nomeorgao = Paragraph("<bold><font size=25 color='white'>{}</font></bold>".format(orgao), style)
                 ano = Paragraph("<bold><font size=25 color='white'>{}</font></bold>".format(ano_value), style)
 
-                unidade = '{} - '.format(row[1]) if str(row[1]) != 'nan' else ''
+                unidade = '{} - '.format(row[1]) if str(row[1]) != 'nan' else '{} - '.format(orgao)
                 acao = Paragraph('<font size=12><b>Ação:</b><br /><br />{}{}</font>'.format(unidade, row[2]), style)
                 justificativa = Paragraph('<font size=12><b>Justificativa:</b><br /><br />{}</font>'.format(row[3]), styles['Normal'])
                 especificacao = Paragraph('<font size=12><b>Especificação do item:</b><br /><br />{}</font>'.format(row[4]), styles['Normal'])
