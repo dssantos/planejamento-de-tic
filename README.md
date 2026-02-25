@@ -2,14 +2,10 @@
 
 Plano de Aquisição de TIC
 
-[![Build Status](https://travis-ci.org/dssantos/planejamento-de-tic.svg?branch=master)](https://travis-ci.org/dssantos/planejamento-de-tic)
-[![Coverage Status](https://coveralls.io/repos/github/dssantos/planejamento-de-tic/badge.svg?branch=master)](https://coveralls.io/github/dssantos/planejamento-de-tic?branch=master)
-[![Maintainability](https://api.codeclimate.com/v1/badges/d37f8f1beb8822511efb/maintainability)](https://codeclimate.com/github/dssantos/planejamento-de-tic/maintainability)
-
 ## Para desenvolver
 
 1. Clone o repositório
-2. Crie um virtualenv com python 3.7
+2. Crie um virtualenv
 3. Ative o virtualenv
 4. Instale as dependências
 5. Defina as variáveis no arquivo .env
